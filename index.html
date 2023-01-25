@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" manifest="Cache.manifest">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caching - Please wait!</title>
+    <style>
+        body {
+            background-image: url("0.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: rgb(32, 33, 36);
+            color: rgb(255, 255, 255);
+            font-family: sans-serif;
+            text-align: center;
+            width: 90%;
+            left: 5%;
+            right: 5%;
+            margin: 0;
+            top: 50%;
+            position: absolute;
+            transform: translateY(-50%);
+        }
+        .div0 {
+            background-color: rgb(32, 33, 36);
+            color: rgb(255, 255, 255);
+            border: solid 2px rgb(53, 54, 58);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        #log {
+            background-color: rgb(53, 54, 58);
+            padding: 10px;
+            font-weight: bold;
+        }
+        .btn {
+            background-color: rgb(32, 33, 36);
+            color: rgb(255, 255, 255);
+            border: solid 1px rgb(53, 54, 58);
+            border-radius: 10px;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition-duration: 300ms;
+        }
+        .btn:hover {
+            background-color: rgb(53, 54, 58);
+        }
+        a {
+            color: rgb(0, 100, 255);
+        }
+    </style>
+    <!--Cache JS-->
+    <script>
+        window.applicationCache.ondownloading=function() {
+            document.getElementById("done").innerHTML="Page Caching Started!"
+        }
+        window.applicationCache.onprogress=function(a) {
+            document.getElementById("log").style.width=(Math.round(100*(a.loaded/a.total)))+"%"
+            document.getElementById("log").innerHTML=(Math.round(100*(a.loaded/a.total)))+"%"
+        }
+        window.applicationCache.oncached=function() {
+            document.getElementById("done").innerHTML="Offline Cache Completed. Now turn off internet & reopen PS4 Browser!";
+        }
+        window.applicationCache.onnoupdate=function() {
+            setTimeout(() => {
+                location.href="./lndex.html"
+            }, 0);
+        }
+        window.applicationCache.onerror=function() {
+            document.getElementById("done").innerHTML="Something Went Wrong or Page Already Cached...[Clear Web-data & try again]";
+        }
+    </script>
+</head>
+<body>
+    <h1 id="done">Please Wait, Offline Cache is on progress!</h1>
+    <div class="div0">
+        <div id="log">0%</div>
+    </div>
+    <br>
+    <a href="./lndex.html"><button class="btn">Skip Offline Cache</button></a>
+    <p>Owner: SALT <a href="http://t.me/Salt753194">Telegram</a> :: <a href="https://twitter.com/salt13939424">Twitter</a></p>
+    <p>Developed & Web-Design by <a href="./index.html">@bishalqx980</a></p>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightkinghost for PS4 9.00</title>
+    <style>
+    body {
+        background-size: cover;
+        background-color: rgb(53, 54, 58);
+        color: rgb(255, 255, 255);
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%;
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
+    }
+    /*Notification*/
+    .notification {
+        width: 400px;
+        text-align: left;
+        top: 2%;
+        right: -1%;
+        position: fixed;
+        background-color: rgb(20, 20, 60, 0.5);
+        color: rgb(255, 255, 255);
+        border: none;
+        border-bottom: solid 3px rgb(0, 100, 255);
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        animation: slide 500ms;
+    }
+    @keyframes slide {
+        from {
+            transform: translateX(150%);
+        }
+        to {
+            transform: translateX(0%);
+        }
+    }
+    .notification2 {
+        animation: slide2 500ms;
+    }
+    @keyframes slide2 {
+        from {
+            transform: translateX(0%);
+        }
+        to {
+            transform: translateX(120%);
+        }
+    }
+
+    hr {
+        opacity: 10%;
+    }
+    .btn {
+        margin-bottom: 1%;
+        background-color: rgb(255, 255, 255);
+        color: rgb(50, 50, 150);
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px;
+        cursor: pointer;
+        transition: 400ms;
+    }
+    .btn:hover {
+        box-shadow: 0px 0px 20px rgb(255, 255, 255);
+    }
+    .btnS {
+        outline: none;
+        padding: 0px;
+    }
+    .Credit {
+        bottom: 0;
+        left: 20%;
+        right: 20%;
+        position: absolute;
+        color: rgb(150, 150, 150);
+    }
+    a {
+        color: rgb(0, 100, 255);
+    }
+    </style>
+<!--Required-->
+<script src="./status.js"></script>
+<script src="./payload.js"></script>
+<script src="./int64.js"></script>
+<script src="./rop.js"></script>
+<script src="./kex.js"></script>
+<script src="./webkit.js"></script>
+</head>
+<body onload="load()">
+    <!--Notification Area-->
+    <div id="notify" style="display: none;">
+        <p id="log"></p>
+    </div>
+    <!--Other-->
+    <h1>Night King Host for 9.00</h1>
+    <hr>
+    <a href="./theme.html" style="font-size: 22px;color: rgb(12, 184, 12);text-decoration: none;float: right;">Theme</a>
+    <p id="status" style="font-size: 22px;color: rgb(255, 255, 0);">Status</p>
+    <hr>
+    <div id="jbdone_div0">
+        <h2>⚠ No alert will popup! Insert USB when you see notification...</h2>
+    </div>
+    <div id="jbdone_div" style="display: none;">
+        <button class="btn" onclick="GoldHEN212()" onmouseover="s2()" onmouseout="DefaultStatus()" style="background-color: rgb(255, 180, 0);color: rgb(255, 255, 255);text-shadow: 3px 3px 3px rgb(0, 0, 0);">GoldHEN 2.1.2</button>
+        <button class="btn" onclick="GoldHEN224()" onmouseover="s2()" onmouseout="DefaultStatus()" style="background-color: rgb(255, 180, 0);color: rgb(255, 255, 255);text-shadow: 3px 3px 3px rgb(0, 0, 0);">GoldHEN 2.2.4</button>
+        <button class="btn" onclick="GoldHEN225b8()" onmouseover="s2()" onmouseout="DefaultStatus()" style="background-color: rgb(255, 180, 0);color: rgb(255, 255, 255);text-shadow: 3px 3px 3px rgb(0, 0, 0);">GoldHEN 2.2.5b8</button>
+        <button class="btn" onclick="GoldHEN23()" onmouseover="s2()" onmouseout="DefaultStatus()" style="background-color: rgb(255, 180, 0);color: rgb(255, 255, 255);text-shadow: 3px 3px 3px rgb(0, 0, 0);">GoldHEN 2.3</button>
+        <br>
+        <button class="btn" onclick="app2usb()" onmouseover="s3()" onmouseout="DefaultStatus()">App2USB</button>
+        <button class="btn" onclick="appdumper()" onmouseover="s4()" onmouseout="DefaultStatus()">App Dumper</button>
+        <button class="btn" onclick="dupdate()" onmouseover="s5()" onmouseout="DefaultStatus()">Disable Updates</button>
+        <button class="btn" onclick="eupdate()" onmouseover="s6()" onmouseout="DefaultStatus()">Enable Updates</button>
+        <button class="btn" onclick="ftp()" onmouseover="s7()" onmouseout="DefaultStatus()">FTP</button>
+        <button class="btn" onclick="dbbackup()" onmouseover="s8()" onmouseout="DefaultStatus()">DB Backup</button>
+        <button class="btn" onclick="dbrestore()" onmouseover="s9()" onmouseout="DefaultStatus()">DB Restore</button>
+        <button class="btn" onclick="pkgbackup()" onmouseover="s10()" onmouseout="DefaultStatus()" style="background-color: red;color: rgb(255, 255, 255);text-shadow: 3px 3px 3px rgb(0, 0, 0);">PKG Backup v1.1</button>
+        <br>
+        <button class="btn" onclick="Mdumper()" onmouseover="s11()" onmouseout="DefaultStatus()">Module Dumper</button>
+        <button class="btn" onclick="Kdumper()" onmouseover="s12()" onmouseout="DefaultStatus()">Kernel Dumper</button>
+        <button class="btn" onclick="PUART()" onmouseover="s13()" onmouseout="DefaultStatus()">Permanent UART</button>
+        <button class="btn" onclick="PCon()" onmouseover="s14()" onmouseout="DefaultStatus()">Parental Control</button>
+        <button class="btn" onclick="rifRename()" onmouseover="s15()" onmouseout="DefaultStatus()">RIF Renamer</button>
+        <button class="btn" onclick="daslr()" onmouseover="s16()" onmouseout="DefaultStatus()">Disable ASLR</button>
+        <button class="btn" onclick="dtodex()" onmouseover="s17()" onmouseout="DefaultStatus()">Disable ToDex</button>
+        <button class="btn" onclick="etodex()" onmouseover="s18()" onmouseout="DefaultStatus()">Enable ToDex</button>
+        <button class="btn" onclick="Exitidu()" onmouseover="s19()" onmouseout="DefaultStatus()">Exit IDU</button>
+        <br>
+        <button class="btn" onclick="orbistool()" onmouseover="s20()" onmouseout="DefaultStatus()" style="background-color: rgb(255, 0, 0);color: rgb(255, 255, 255);text-shadow: 3px 3px 3px rgb(0, 0, 0);">Orbis ToolBox</button>
+        <button class="btn" onclick="ps4debug()" onmouseover="s21()" onmouseout="DefaultStatus()" style="background-color: rgb(0, 255, 0);color: rgb(255, 255, 255);text-shadow: 3px 3px 3px rgb(0, 0, 0);">PS4Debug</button>
+        <button class="btn" onclick="webrte()" onmouseover="s22()" onmouseout="DefaultStatus()" style="background-color: rgb(0, 0, 255);color: rgb(255, 255, 255);text-shadow: 3px 3px 3px rgb(0, 0, 0);">WebRTE</button>
+        <button class="btn" onclick="southbridge()" onmouseover="s23()" onmouseout="DefaultStatus()" style="background-color: rgb(150, 50, 0);color: rgb(255, 255, 255);text-shadow: 3px 3px 3px rgb(0, 0, 0);">Who's that SouthBridge</button>
+        <br>
+        <button class="btn" onclick="" onmouseover="s24()" onmouseout="DefaultStatus()">Linux <select name="" onclick="linuxVram()" id="linux" class="btn btnS">
+            <option value="">Select VRam</option>
+            <option value="1">1GB</option>
+            <option value="2">2GB</option>
+            <option value="3">3GB</option>
+            <option value="4">4GB</option>
+            <option value="5">5GB</option>
+        </select></button>
+        <button class="btn" onclick="" onmouseover="s25()" onmouseout="DefaultStatus()">LinuxN <select name="" id="linuxn" onclick="linuxnVram()" class="btn btnS">
+            <option value="">Select VRam</option>
+            <option value="1">1GB</option>
+            <option value="2">2GB</option>
+            <option value="3">3GB</option>
+            <option value="4">4GB</option>
+        </select></button>
+        <br>
+        <button class="btn" onclick="" onmouseover="s26()" onmouseout="DefaultStatus()">GTAV ModMenu<select name="" id="gtav" onclick="GTAVGmod()" class="btn btnS">
+            <option value="">Select Version</option>
+            <option value="L100">Lamance v1.00</option>
+            <option value="L138">Lamance v1.38</option>
+            <option value="A127">ArabicGuy v1.27</option>
+            <option value="A132">ArabicGuy v1.32</option>
+            <option value="A133">ArabicGuy v1.33</option>
+            <option value="B133">BeefQueef v1.33</option>
+            <option value="B134">BeefQueef v1.34</option>
+            <option value="B138">BeefQueef v1.38</option>
+            <option value="E138">Expulsion v1.38</option>
+            <option value="W132">WildeModz v1.32</option>
+            <option value="W133">WildeModz v1.33</option>
+            <option value="W138">WildeModz v1.38</option>
+        </select></button>
+        <button class="btn" onclick="" onmouseover="s27()" onmouseout="DefaultStatus()">RDR2 ModMenu <select name="" id="rdr2" onclick="rdr2Gmod()" class="btn btnS">
+            <option value="">Select Version</option>
+            <option value="100">OystersMenu v1.00</option>
+            <option value="113">OystersMenu v1.13</option>
+            <option value="119">OystersMenu v1.19</option>
+            <option value="124">OystersMenu v1.24</option>
+            <option value="129">OystersMenu v1.29</option>
+        </select></button>
+    </div>
+    <p class="Credit">Main Owner:Salt - Find Me In Telegram if you have any kind of issues! <a href="https://t.me/Salt753194">@Salt753194</a> And Twitter: <a href="https://twitter.com/salt13939424">@salt13939424</a> <br> Developed, Web-Designed by <a href="">@bishalqx980</a> | Many Many Thanks to PS4 Scene Developer's.</p>
+   
+ <!--load payload-->
+    <script>
+        function loadBIN(){
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', PLfile, true);
+            xhr.overrideMimeType('text/plain; charset=x-user-defined');
+            xhr.onload = function(e) {
+            if (this.status == 200) {
+                payload = this.response;
+                SendPayload();
+                allset();
+            }
+            else{
+                alert("Failed to load " + PLfile + " - " + this.status);
+                return;
+            }};
+            xhr.send();
+        }     
+        function SendPayload() {
+                var payload_buffer = chain.syscall(477, new int64(0x26200000, 0x9), 0x300000, 7, 0x41000, -1, 0);
+                var bufLen = payload.length;
+                var payload_loader = p.malloc32(bufLen);
+                var loader_writer = payload_loader.backing;
+                for(var i=0;i<bufLen/4;i++){
+                    var hxVal = payload.slice(i*4,4+(i*4)).split("").reverse().join("").split("").map(function(s){return("0000" + s.charCodeAt(0).toString(16)).slice(-2);}).join("");
+                    loader_writer[i] = parseInt(hxVal, 16);
+                }
+                chain.syscall(74, payload_loader, bufLen, (0x1 | 0x2 | 0x4));
+                var pthread = p.malloc(0x10);
+                chain.call(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_loader, payload_buffer);
+            }
+        function allset() {
+            ShowMSG = "You're all Set!";
+            loadmsg();
+            setTimeout(ani2, 4000);
+        }
+    </script>
+    <!--Notification JS-->
+    <script>
+        function loadmsg() {
+            document.getElementById('notify').style.display = ''
+            document.getElementById('notify').className = 'notification'
+            document.getElementById('log').innerHTML = ShowMSG
+        }
+        function ani2() {
+            document.getElementById('notify').className = 'notification + notification2'
+            setTimeout(() => {
+                document.getElementById('notify').style.display = 'none'
+            }, 400);
+        }
+    </script>
+    <!--Other-->
+    <script>
+    function load() {
+        var bgimage = localStorage.getItem("bgimg")
+        if (bgimage == null){
+            document.body.style.backgroundImage = "url('0.jpg')"
+        }else {
+            document.body.style.backgroundImage = `url(${bgimage})`
+        }
+        ShowMSG = "Please Wait, Preparing for Exploit!"
+        loadmsg()
+        setTimeout(poc, 1000)
+    }
+    function Jailbreak() {
+        ShowMSG = "Insert USB Now... Trigering Exploit!"
+        loadmsg()
+    }
+    function jbdone() {
+        ShowMSG = "Jailbreak Done! Now Load GoldHEN..."
+        loadmsg()
+        document.getElementById("jbdone_div0").style.display = "none"
+        document.getElementById("jbdone_div").style.display = ""
+    }
+    function DefaultStatus() {
+        document.getElementById("status").innerHTML = "Status"
+    }
+    </script>
+</body>
+</html>

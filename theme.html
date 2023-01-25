@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme - Night-King-Host</title>
+    <style>
+        body {
+            background: url("1.jpg");
+            color: rgb(255, 255, 255);
+            background-size: cover;
+            text-align: center;
+        }
+        hr {
+            opacity: 10%;
+        }
+        .btn {
+            background-color: rgb(0, 0, 0, .5);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+        }
+        .img {
+            width: 128px;
+            height: 72px;
+        }
+        .Credit {
+            bottom: 0;
+            left: 20%;
+            right: 20%;
+            position: absolute;
+            color: rgb(150, 150, 150);
+            text-align: center;
+        }
+        a {
+            color: rgb(0, 100, 255);
+        }
+    </style>
+</head>
+<body>
+    <h1>Night King Host for 9.00</h1>
+    <hr><br>
+    <div>
+        <button class="btn" onclick="changeImg0()"><img class="img" src="0.jpg" alt=""><p>IMAGE 0</p></button>
+        <button class="btn" onclick="changeImg1()"><img class="img" src="1.jpg" alt=""><p>IMAGE 1</p></button>
+        <button class="btn" onclick="changeImg2()"><img class="img" src="2.jpg" alt=""><p>IMAGE 2</p></button>
+        <button class="btn" onclick="changeImg3()"><img class="img" src="3.jpg" alt=""><p>IMAGE 3</p></button>
+        <button class="btn" onclick="changeImg4()"><img class="img" src="4.jpg" alt=""><p>IMAGE 4</p></button>
+        <button class="btn" onclick="changeImg5()"><img class="img" src="5.jpg" alt=""><p>IMAGE 5</p></button>
+        <button class="btn" onclick="changeImg5()"><img class="img" src="6.jpg" alt=""><p>IMAGE 5</p></button>
+    </div>
+    <p class="Credit">Main Owner:Salt - Find Me In Telegram if you have any kind of issues! <a href="https://t.me/Salt753194">@Salt753194</a> And Twitter: <a href="https://twitter.com/salt13939424">@salt13939424</a> <br> Developed, Web-Designed by <a href="">@bishalqx980</a> | Many Many Thanks to PS4 Scene Developer's.</p>
+    <script>
+        var bgimage = localStorage.getItem("bgimg")
+        if (bgimage == null){
+            document.body.style.backgroundImage = "url('8.jpg')"
+        }else {
+            document.body.style.backgroundImage = `url(${bgimage})`
+        }
+        function changeImg0() {
+            document.body.style.backgroundImage = "url('0.jpg')"
+            localStorage.setItem("bgimg", "0.jpg")
+        }
+        function changeImg1() {
+            document.body.style.backgroundImage = "url('1.jpg')"
+            localStorage.setItem("bgimg", "1.jpg")
+        }
+        function changeImg2() {
+            document.body.style.backgroundImage = "url('2.jpg')"
+            localStorage.setItem("bgimg", "2.jpg")
+        }
+        function changeImg3() {
+            document.body.style.backgroundImage = "url('3.jpg')"
+            localStorage.setItem("bgimg", "3.jpg")
+        }
+        function changeImg4() {
+            document.body.style.backgroundImage = "url('4.jpg')"
+            localStorage.setItem("bgimg", "4.jpg")
+        }
+        function changeImg5() {
+            document.body.style.backgroundImage = "url('5.jpg')"
+            localStorage.setItem("bgimg", "5.jpg")
+        }
+        function changeImg5() {
+            document.body.style.backgroundImage = "url('5.jpg')"
+            localStorage.setItem("bgimg", "6.jpg")
+        }
+    </script>
+</body>
+</html>
