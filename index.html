@@ -64,10 +64,8 @@
             document.getElementById("done").innerHTML="Offline Cache Completed. Now turn off internet & reopen PS4 Browser!";
         }
         window.applicationCache.onnoupdate=function() {
-            setTimeout(() => {
                 window.location.replace("lndex.html");
             };
-        }
         window.applicationCache.onerror=function() {
             document.getElementById("done").innerHTML="Something Went Wrong or Page Already Cached...[Clear Web-data & try again]";
         }
