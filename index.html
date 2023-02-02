@@ -65,8 +65,8 @@
         }
         window.applicationCache.onnoupdate=function() {
             setTimeout(() => {
-                location.href="./lndex.html"
-            }, 0);
+                window.location.replace("lndex.html");
+            };
         }
         window.applicationCache.onerror=function() {
             document.getElementById("done").innerHTML="Something Went Wrong or Page Already Cached...[Clear Web-data & try again]";
