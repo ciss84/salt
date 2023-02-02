@@ -620,7 +620,7 @@ var trigger_spray = function () {
             chain.fcall(patch_buffer, p.read8(KERNEL_BASE_PTR));
             chain.fcall(window.syscalls[73], patch_buffer, 0x4000);
             chain.run();
-            //jbdone();
+            jbdone();
             alert("jb success unplug USB now.");           
         }
         else
